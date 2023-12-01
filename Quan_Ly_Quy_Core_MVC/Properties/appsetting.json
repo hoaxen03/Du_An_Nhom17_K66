@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=DELL\\SQLEXPRESS01;Database=website;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+}
