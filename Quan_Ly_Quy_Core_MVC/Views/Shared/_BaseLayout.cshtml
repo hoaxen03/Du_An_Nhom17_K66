@@ -42,6 +42,7 @@
                     <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
                     <li class="nav-item"><a class="nav-link" href="/Demo/Index">Demo CRUD</a></li>
                     <li class="nav-item"><a class="nav-link" href="/swagger/index.html">API Docs</a></li>
+                    <partial name="_LoginPartial" />
                 </ul>
             </div>
         </div>
@@ -49,7 +50,7 @@
 
     @* @RenderSection() *@
     @RenderBody()
-
+    @RenderSection("Scripts", false)
     <!-- Footer-->
     <footer class="bg-light py-5">
         <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - Company Name</div></div>
