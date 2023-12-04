@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Algorithm\" />
     <Folder Include="Resource\" />
     <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>

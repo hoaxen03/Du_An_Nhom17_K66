@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Demo CRUD";
+}
+
+
+@section mycss {
+    <link href="~/httt/css/mycss.css" rel="stylesheet">
+}
+
+<!-- Demo -->
+<section class="page-section bg-primary" id="demo">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-white mt-0">DANH SÁCH SINH VIÊN</h2>
+                <hr class="divider divider-light" />
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSinhVien">
+                    Thêm mới
+                </button>
+            </div>
+            <div class="col-6">
+                <button type="button" id="show" class="btn btn-primary float-end" onclick="refresh_all()">Làm tươi</button>
+                <button type="button" id="clear" class="btn btn-danger float-end" onclick="clear_all()">Clear</button>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">MSV</th>
+                    <th scope="col">Lớp</th>
+                    <th scope="col">Khoa viện</th>
+                    <th scope="col">CCCD</th>
+                    <th scope="col">Họ và tên</th>
+                    <th scope="col">Tuổi</th>
+                    <th scope="col">Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="dsSinhVien">
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="page-section">
+    <div class="container px-4 px-lg-5">
+        <!-- Modal Add Sinh Vien-->
+        <div class="modal fade" id="addSinhVien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Biểu mẫu thêm mới Sinh viên</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="msv" class="col-form-label">Mã sinh viên:</label>
+                                <input type="text" class="form-control" id="msv">
+                            </div>
+                            <div class="form-group">
+                                <label for="lop" class="col-form-label">Lớp:</label>
+                                <input type="text" class="form-control" id="lop">
+                            </div>
+                            <div class="form-group">
+                                <label for="khoavien" class="col-form-label">Khoa/Viện:</label>
+                                <input type="text" class="form-control" id="khoavien">
+                            </div>
+                            <div class="form-group">
+                                <label for="cccd" class="col-form-label">Căn cước công dân:</label>
+                                <input type="text" class="form-control" id="cccd">
+                            </div>
+                            <div class="form-group">
+                                <label for="hodem" class="col-form-label">Họ đêm:</label>
+                                <input type="text" class="form-control" id="hodem">
+                            </div>
+                            <div class="form-group">
+                                <label for="ten" class="col-form-label">Tên:</label>
+                                <input type="text" class="form-control" id="ten">
+                            </div>
+                            <div class="form-group">
+                                <label for="tuoi" class="col-form-label">Tuổi:</label>
+                                <input type="text" class="form-control" id="tuoi">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" onclick="save_sinhvien()">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section">
+    <div class="container px-4 px-lg-5">
+        <!-- Modal Del Sinh Vien-->
+        <div class="modal fade" id="delSinhVien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Xác nhận Xóa Sinh viên</h5>
+                    </div>
+                    <div class="modal-body">
+                        <span>Bạn chắc chắn muốn xóa sinh viên</span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary" id="del_sv">Xác nhận</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section myjs {
+    <script src="~/httt/js/myjs.js"></script>
+}

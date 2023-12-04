@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34302.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core_WebApp", "Core_WebApp\Core_WebApp.csproj", "{A07204F3-D510-489D-93C9-39336D0D0466}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quan_Ly_Quy_Core_API", "Quan_Ly_Quy_Core_API\Quan_Ly_Quy_Core_API.csproj", "{9ADCCA7C-E28C-4300-B821-6AD3720B2BB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quan_Ly_Quy_Core_API", "Quan_Ly_Quy_Core_API\Quan_Ly_Quy_Core_API.csproj", "{9ADCCA7C-E28C-4300-B821-6AD3720B2BB7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quan_Ly_Quy_Core_MVC", "Quan_Ly_Quy_Core_MVC\Quan_Ly_Quy_Core_MVC.csproj", "{E285702A-578B-40CE-A89C-38BBD9F29EA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quan_Ly_Quy_Core_MVC", "Quan_Ly_Quy_Core_MVC\Quan_Ly_Quy_Core_MVC.csproj", "{E285702A-578B-40CE-A89C-38BBD9F29EA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A07204F3-D510-489D-93C9-39336D0D0466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A07204F3-D510-489D-93C9-39336D0D0466}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A07204F3-D510-489D-93C9-39336D0D0466}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A07204F3-D510-489D-93C9-39336D0D0466}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9ADCCA7C-E28C-4300-B821-6AD3720B2BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9ADCCA7C-E28C-4300-B821-6AD3720B2BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ADCCA7C-E28C-4300-B821-6AD3720B2BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU

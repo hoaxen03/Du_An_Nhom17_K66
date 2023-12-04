@@ -10,6 +10,6 @@ namespace Quan_Ly_Quy_Core_MVC.Areas.Identity.Data
     public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
-        public string Lastname { get; set; }
+        public string LastName { get; set; }
     }
 }
