@@ -1,58 +1,61 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Core_WebApp_MVC.Models;
 using Microsoft.AspNetCore.Mvc;
-using Quan_Ly_Quy_Core_API.Models;
+using System.Diagnostics.Metrics;
 using System.Net;
 using System.Xml.Linq;
 
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Quan_Ly_Quy_Core_API.Controllers
+namespace Core_WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/student")]
     [ApiController]
     public class StudentController : ControllerBase
     {
+        // Định nghĩa ra biến danh sách sinh viên; Để lưu sinh viên khi được add thêm mới
         public static List<Student> ds_sinhvien = new List<Student>()
-        {
-            new Student()
             {
-                Msv = "221070001"   ,
-                Lop = "66-HTTT"     ,
-                Khoavien = "Khoa CĐCT"   ,
-                Cccd = "0011234534"  ,
-                Hodem = "Nguyễn Văn"  ,
-                Ten = "ABC"      ,
-                Bietdanh = "ABC"      ,
-                Email = "abc@demo.com",
-                Dienthoai = "0979xxxx222" ,
-                Tuoi = 0
-            },
-            new Student()
-            {
-                Msv = "221070002"   ,
-                Lop = "66-HTTT"     ,
-                Khoavien = "Khoa CĐCT"   ,
-                Cccd = "0011234534"  ,
-                Hodem = "Trần Văn"  ,
-                Ten = "XYZ"      ,
-                Bietdanh = "XYZ"      ,
-                Email = "abc@demo.com",
-                Dienthoai = "0979xxxx242" ,
-                Tuoi = 0
-            },
-            new Student()
-            {
-                Msv = "221070003"   ,
-                Lop = "66-HTTT"     ,
-                Khoavien = "Khoa CĐCT"   ,
-                Cccd = "0011234534"  ,
-                Hodem = "Lê Thị"  ,
-                Ten = "AAA"      ,
-                Bietdanh = "AAA"      ,
-                Email = "aaa@demo.com",
-                Dienthoai = "0979xxxx223" ,
-                Tuoi = 0
-            }
-        };
+                new Student()
+                {
+                    Msv         = "221070001"   ,
+                    Lop         = "66-HTTT"     ,
+                    Khoavien    = "Khoa CĐCT"   ,
+                    Cccd        = "0011234534"  ,
+                    Hodem       = "Nguyễn Công"  ,
+                    Ten         = "Văn"      ,
+                    Bietdanh    = "Advankaynss"      ,
+                    Email       = "abc@demo.com",
+                    Dienthoai   = "0961xxxx527" ,
+                    Tuoi        = 20
+                },
+                new Student()
+                {
+                    Msv         = "221070002"   ,
+                    Lop         = "66-HTTT"     ,
+                    Khoavien    = "Khoa CĐCT"   ,
+                    Cccd        = "0011234534"  ,
+                    Hodem       = "Phạm Thị"  ,
+                    Ten         = "Lộc"      ,
+                    Bietdanh    = "Phạm Lộc"      ,
+                    Email       = "abcd@demo.com",
+                    Dienthoai   = "0976xxxx222" ,
+                    Tuoi        = 20
+                },
+                new Student()
+                {
+                    Msv         = "221070003"   ,
+                    Lop         = "66-HTTT"     ,
+                    Khoavien    = "Khoa CĐCT"   ,
+                    Cccd        = "0011234534"  ,
+                    Hodem       = "Vũ Thành "  ,
+                    Ten         = "Trung"      ,
+                    Bietdanh    = "HoaXen"      ,
+                    Email       = "aaa@demo.com",
+                    Dienthoai   = "0979xxxx293" ,
+                    Tuoi        = 20
+                }
+            };
+
         public static Student GetStudentByMsv(string msv)
         {
             //return ds_sinhvien.Find(i => i.Msv == msv);
@@ -89,7 +92,7 @@ namespace Quan_Ly_Quy_Core_API.Controllers
 
         // POST api/<StudentController>
         [HttpPost]
-        public IActionResult Post([FromForm] Student sv)
+        public IActionResult Post([FromBody] Student sv)
         {
             try
             {
@@ -211,6 +214,5 @@ namespace Quan_Ly_Quy_Core_API.Controllers
                 return new HttpResponseMessage(HttpStatusCode.BadRequest);
             }
         }
-
     }
 }

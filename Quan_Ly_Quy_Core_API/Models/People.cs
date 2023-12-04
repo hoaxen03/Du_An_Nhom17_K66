@@ -1,4 +1,4 @@
-﻿namespace Quan_Ly_Quy_Core_API.Models
+﻿namespace Core_WebApp_MVC.Models
 {
     public abstract class People
     {
@@ -38,5 +38,6 @@
         }
 
         public abstract string GetInfo();
+
     }
 }

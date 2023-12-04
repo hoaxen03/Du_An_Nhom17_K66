@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Quan_Ly_Quy_Core_API.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace Quan_Ly_Quy_Core_API.Models
+namespace Core_WebApp_MVC.Models
 {
-    public class Student : People 
+    public class Student : People
     {
         string msv; // 221070001 (22 năm | 107 mã ngành | 0001 số thứ tự nhập học)
         string lop; // 66A-HTTT, 66B-HTTT
