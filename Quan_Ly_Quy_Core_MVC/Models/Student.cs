@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
-using Quan_Ly_Quy_Core_API.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace Core_WebApp_API.Models
+namespace Quan_Ly_Quy_Core_MVC.Models
 {
     public class Student : People
     {
@@ -20,7 +19,7 @@ namespace Core_WebApp_API.Models
 
         public Student(
             string _msv, string _lop, string _khoavien,
-            string _cccd, string _hodem, string _ten, string _bietdanh, string _email, string _dienthoai, int _tuoi,int _tien) : base(_cccd, _hodem, _ten, _bietdanh, _email, _dienthoai, _tuoi,_tien)
+            string _cccd, string _hodem, string _ten, string _bietdanh, string _email, string _dienthoai, int _tuoi ,int _tien) : base(_cccd, _hodem, _ten, _bietdanh, _email, _dienthoai, _tuoi,_tien)
         {
             this.Msv = _msv;
             this.Lop = _lop;
@@ -47,7 +46,8 @@ namespace Core_WebApp_API.Models
                           Bietdanh    = "ABCXYZ"      ,
                           Email       = "abc@demo.com",
                           Dienthoai   = "0979xxxx222" ,
-                          Tuoi        = 0
+                          Tuoi        = 20,
+                          Tien        = 500000
                      },
 
             };

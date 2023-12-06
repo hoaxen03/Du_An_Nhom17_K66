@@ -1,4 +1,4 @@
-﻿namespace Core_WebApp_API.Models
+﻿namespace Quan_Ly_Quy_Core_MVC.Models
 {
     public abstract class People
     {
@@ -18,25 +18,23 @@
         public string Email { get => email; set => email = value; }
         public string Dienthoai { get => dienthoai; set => dienthoai = value; }
         public int Tuoi { get => tuoi; set => tuoi = value; }
-        public int Tien { get => tien ; set => tien = value; }
         public string Hovaten { get => $"{hodem} {ten}"; }
-
-
+        public int Tien { get => tien; set => tien = value; }
 
         public People()
         {
         }
 
-        public People(string _cccd, string _hodem, string _ten, string _bietdanh, string _email, string _dienthoai, int _tuoi,int tien)
+        public People(string _cccd, string _hodem, string _ten, string _bietdanh, string _email, string _dienthoai, int _tuoi, int _tien)
         {
-            this.Cccd = _cccd;
-            this.Hodem = _hodem;
-            this.Ten = _ten;
-            this.Bietdanh = _bietdanh;
-            this.Email = _email;
-            this.Dienthoai = _dienthoai;
-            this.Tuoi = _tuoi;
-            this.Tien = tien;
+            Cccd = _cccd;
+            Hodem = _hodem;
+            Ten = _ten;
+            Bietdanh = _bietdanh;
+            Email = _email;
+            Dienthoai = _dienthoai;
+            Tuoi = _tuoi;
+            Tien = _tien;
         }
 
         public abstract string GetInfo();

@@ -1,11 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Demo CRUD";
+    ViewData["Title"] = "DanhSachSinhVien";
 }
 
+@model decimal
 
-@section mycss {
+@section mycss{
     <link href="~/httt/css/mycss.css" rel="stylesheet">
 }
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <!-- Demo -->
 <section class="page-section bg-primary" id="demo">
@@ -25,9 +30,15 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSinhVien">
                     Thêm mới
                 </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#transactionModal">
+                    Quản lý thu chi
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#FundSevice">
+                    Số Dư Của Quỹ Lớp
+                </button>
             </div>
             <div class="col-6">
-                <button type="button" id="show" class="btn btn-primary float-end" onclick="refresh_all()">Làm tươi</button>
+                <button type="button" id="show" class="btn btn-primary float-end"  onclick="refresh_all()">Làm tươi</button>
                 <button type="button" id="clear" class="btn btn-danger float-end" onclick="clear_all()">Clear</button>
             </div>
         </div>
@@ -41,6 +52,7 @@
                     <th scope="col">CCCD</th>
                     <th scope="col">Họ và tên</th>
                     <th scope="col">Tuổi</th>
+                    <th scope="col">Số tiền đã nộp</th>
                     <th scope="col">Hành động</th>
                 </tr>
             </thead>
@@ -48,7 +60,36 @@
             </tbody>
         </table>
     </div>
+    <!-- Giao diện quản lý thu chi -->
+
 </section>
+<div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="transactionModalLabel">Quản lý thu chi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" id="transactionModalBody">
+                <!-- Nội dung của view sẽ được tải vào đây -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Gọi hàm load để tải nội dung của view vào modal popup
+        $("#transactionModalBody").load("/Transaction/Index");
+    });
+</script>
+
+
 
 <section class="page-section">
     <div class="container px-4 px-lg-5">
@@ -89,7 +130,31 @@
                                 <label for="tuoi" class="col-form-label">Tuổi:</label>
                                 <input type="text" class="form-control" id="tuoi">
                             </div>
+                            <div class="form-group">
+                                <label for="tien" class="col-form-label">Số tiền đã nộp:</label>
+                                <input type="text" class="form-control" id="tien">
+                            </div>
                         </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" onclick="save_sinhvien()">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="page-section">
+    <div class="container px-4 px-lg-5">
+        <!-- Modal Hiển thị số dư-->
+        <div class="modal fade" id="Fundsevice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Số dư hiện tại của quỹ lớp:</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Số dư hiện tại là: @Model đồng</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
@@ -124,6 +189,6 @@
 </section>
 
 
-@section myjs {
+@section myjs{
     <script src="~/httt/js/myjs.js"></script>
 }

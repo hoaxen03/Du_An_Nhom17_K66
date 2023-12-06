@@ -1,4 +1,4 @@
-namespace Quan_Ly_Quy_Core_MVC.Models
+namespace Core_WebApp_API.Models
 {
     public class ErrorViewModel
     {

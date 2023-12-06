@@ -1,15 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Quan_Ly_Quy_Core_API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System.Net;
-using Quan_Ly_Quy_Core_API.Models;
 using System.Threading.Tasks;
-
-namespace Quan_Ly_Quy_Core_API.Controllers
+namespace Core_WebAPI.Controllers
 {
-    [Route("api/[controller][action]")]
-    [ApiController]
+    //[Route("api/[controller]")]
+    //[Route("api/san-pham")]
+    //[ApiController]
     public class ProductController : ControllerBase
     {
+        // Ref: https://www.c-sharpcorner.com/UploadFile/mahesh/insert-item-into-a-C-Sharp-list/
         private static List<Product> ls_products = new List<Product> {
             new Product { Id = 1, Name = "Tivi Sony", Price = 1000},
             new Product { Id = 2, Name = "Tivi LG", Price = 2000 },

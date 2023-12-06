@@ -10,7 +10,7 @@ namespace Core_WebAPI.Controllers
 {
     [Route("api/student")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class APIStudentController : ControllerBase
     {
         // Định nghĩa ra biến danh sách sinh viên; Để lưu sinh viên khi được add thêm mới
         public static List<Student> ds_sinhvien = new List<Student>()
@@ -21,12 +21,12 @@ namespace Core_WebAPI.Controllers
                     Lop         = "66-HTTT"     ,
                     Khoavien    = "Khoa CĐCT"   ,
                     Cccd        = "0011234534"  ,
-                    Hodem       = "Nguyễn Công"  ,
-                    Ten         = "Văn"      ,
-                    Bietdanh    = "Advankaynss"      ,
+                    Hodem       = "Nguyễn Văn"  ,
+                    Ten         = "ABC"      ,
+                    Bietdanh    = "ABC"      ,
                     Email       = "abc@demo.com",
-                    Dienthoai   = "0961xxxx527" ,
-                    Tuoi        = 20
+                    Dienthoai   = "0979xxxx222" ,
+                    Tuoi        = 0
                 },
                 new Student()
                 {
@@ -34,12 +34,12 @@ namespace Core_WebAPI.Controllers
                     Lop         = "66-HTTT"     ,
                     Khoavien    = "Khoa CĐCT"   ,
                     Cccd        = "0011234534"  ,
-                    Hodem       = "Phạm Thị"  ,
-                    Ten         = "Lộc"      ,
-                    Bietdanh    = "Phạm Lộc"      ,
-                    Email       = "abcd@demo.com",
-                    Dienthoai   = "0976xxxx222" ,
-                    Tuoi        = 20
+                    Hodem       = "Trần Văn"  ,
+                    Ten         = "XYZ"      ,
+                    Bietdanh    = "XYZ"      ,
+                    Email       = "abc@demo.com",
+                    Dienthoai   = "0979xxxx242" ,
+                    Tuoi        = 0
                 },
                 new Student()
                 {
@@ -47,15 +47,14 @@ namespace Core_WebAPI.Controllers
                     Lop         = "66-HTTT"     ,
                     Khoavien    = "Khoa CĐCT"   ,
                     Cccd        = "0011234534"  ,
-                    Hodem       = "Vũ Thành "  ,
-                    Ten         = "Trung"      ,
-                    Bietdanh    = "HoaXen"      ,
+                    Hodem       = "Lê Thị"  ,
+                    Ten         = "AAA"      ,
+                    Bietdanh    = "AAA"      ,
                     Email       = "aaa@demo.com",
-                    Dienthoai   = "0979xxxx293" ,
-                    Tuoi        = 20
+                    Dienthoai   = "0979xxxx223" ,
+                    Tuoi        = 0
                 }
             };
-
 
         public static Student GetStudentByMsv(string msv)
         {
@@ -93,7 +92,7 @@ namespace Core_WebAPI.Controllers
 
         // POST api/<StudentController>
         [HttpPost]
-        public IActionResult Post([FromForm] Student sv)
+        public IActionResult Post([FromBody] Student sv)
         {
             try
             {
@@ -165,7 +164,7 @@ namespace Core_WebAPI.Controllers
                 if (msv != sv.Msv)
                     return BadRequest("Msg: Mã sinh viên không tồn tại");
 
-                var sv_old = StudentController.GetStudentByMsv(msv);
+                var sv_old = APIStudentController.GetStudentByMsv(msv);
                 var sv_new = sv;
 
                 // B2: Cập nhật các trường thông tin
@@ -185,7 +184,7 @@ namespace Core_WebAPI.Controllers
         {
             try
             {
-                var sv_del = StudentController.GetStudentByMsv(msv);
+                var sv_del = APIStudentController.GetStudentByMsv(msv);
                 // B1: Kiểm tra sự tồn tài của đối tượng theo id
                 if (sv_del != null)
                 {

@@ -7,13 +7,51 @@
     <UserSecretsId>b952d2a7-a1dd-4db1-9735-f841ef066eeb</UserSecretsId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Algorithm\" />
-    <Folder Include="Resource\" />
+	<ItemGroup>
+		<Content Remove="Views\Demo\Demo.cshtml" />
+		<Content Remove="wwwroot\httt\assets\favicon.ico" />
+		<Content Remove="wwwroot\httt\assets\img\bg-masthead.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\1.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\2.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\3.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\4.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\5.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\6.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\thumbnails\1.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\thumbnails\2.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\thumbnails\3.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\thumbnails\4.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\thumbnails\5.jpg" />
+		<Content Remove="wwwroot\httt\assets\img\portfolio\thumbnails\6.jpg" />
+		<Content Remove="wwwroot\httt\css\styles.css" />
+		<Content Remove="wwwroot\httt\js\scripts.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="wwwroot\httt\assets\favicon.ico" />
+		<None Include="wwwroot\httt\assets\img\bg-masthead.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\fullsize\1.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\fullsize\2.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\fullsize\3.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\fullsize\4.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\fullsize\5.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\fullsize\6.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\thumbnails\1.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\thumbnails\2.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\thumbnails\3.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\thumbnails\4.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\thumbnails\5.jpg" />
+		<None Include="wwwroot\httt\assets\img\portfolio\thumbnails\6.jpg" />
+		<None Include="wwwroot\httt\css\styles.css" />
+		<None Include="wwwroot\httt\js\scripts.js" />
+	</ItemGroup>
+	<ItemGroup>
+	<Folder Include="Resource\" />
     <Folder Include="wwwroot\NewFolder\" />
-  </ItemGroup>
+	</ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />
@@ -24,6 +62,23 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+	
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Demo\Demo.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Demo\Demo.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Quan_Ly_Quy_Core_API\Quan_Ly_Quy_Core_API.csproj" />
   </ItemGroup>
 
 </Project>
