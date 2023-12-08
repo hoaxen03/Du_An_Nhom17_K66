@@ -2,7 +2,7 @@
 using Quan_Ly_Quy_Core_API.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace Core_WebApp_API.Models
+namespace Quan_Ly_Quy_Core_API.Models
 {
     public class Student : People
     {
@@ -47,7 +47,8 @@ namespace Core_WebApp_API.Models
                           Bietdanh    = "ABCXYZ"      ,
                           Email       = "abc@demo.com",
                           Dienthoai   = "0979xxxx222" ,
-                          Tuoi        = 0
+                          Tuoi        = 0,
+                          Tien        = 0
                      },
 
             };

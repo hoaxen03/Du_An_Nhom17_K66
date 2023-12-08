@@ -1,4 +1,4 @@
-﻿using Core_WebApp_API.Models;
+﻿using Quan_Ly_Quy_Core_API.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.Metrics;
 using System.Net;
@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Core_WebAPI.Controllers
+namespace Quan_Ly_Quy_Core_API.Controllers
 {
     [Route("api/student")]
     [ApiController]

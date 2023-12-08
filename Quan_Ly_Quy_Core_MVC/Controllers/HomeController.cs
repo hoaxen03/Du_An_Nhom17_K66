@@ -1,8 +1,8 @@
-﻿using Core_WebApp_API.Models;
+﻿using Quan_Ly_Quy_Core_API.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Core_WebApp_API.Controllers
+namespace Quan_Ly_Quy_Core_API.Controllers
 {
     public class HomeController : Controller
     {

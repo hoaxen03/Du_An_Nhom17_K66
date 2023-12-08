@@ -1,12 +1,13 @@
-﻿using Core_WebApp_API.Models;
+﻿using Quan_Ly_Quy_Core_API.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.Metrics;
 using System.Net;
 using System.Xml.Linq;
+using Quan_Ly_Quy_Core_MVC.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Core_WebAPI.Controllers
+namespace Quan_Ly_Quy_Core_API.Controllers
 {
     [Route("api/student")]
     [ApiController]
@@ -21,12 +22,13 @@ namespace Core_WebAPI.Controllers
                     Lop         = "66-HTTT"     ,
                     Khoavien    = "Khoa CĐCT"   ,
                     Cccd        = "0011234534"  ,
-                    Hodem       = "Nguyễn Văn"  ,
-                    Ten         = "ABC"      ,
-                    Bietdanh    = "ABC"      ,
+                    Hodem       = "Nguyễn Công"  ,
+                    Ten         = "Văn"      ,
+                    Bietdanh    = "Advankaynss"      ,
                     Email       = "abc@demo.com",
-                    Dienthoai   = "0979xxxx222" ,
-                    Tuoi        = 0
+                    Dienthoai   = "0961xxxx527" ,
+                    Tuoi        = 20,
+                    Tien        = 100000
                 },
                 new Student()
                 {
@@ -34,12 +36,13 @@ namespace Core_WebAPI.Controllers
                     Lop         = "66-HTTT"     ,
                     Khoavien    = "Khoa CĐCT"   ,
                     Cccd        = "0011234534"  ,
-                    Hodem       = "Trần Văn"  ,
-                    Ten         = "XYZ"      ,
-                    Bietdanh    = "XYZ"      ,
-                    Email       = "abc@demo.com",
-                    Dienthoai   = "0979xxxx242" ,
-                    Tuoi        = 0
+                    Hodem       = "Phạm Thị"  ,
+                    Ten         = "Lộc"      ,
+                    Bietdanh    = "Phạm Lộc"      ,
+                    Email       = "abcd@demo.com",
+                    Dienthoai   = "0976xxxx222" ,
+                    Tuoi        = 20,
+                    Tien        = 200000
                 },
                 new Student()
                 {
@@ -47,14 +50,17 @@ namespace Core_WebAPI.Controllers
                     Lop         = "66-HTTT"     ,
                     Khoavien    = "Khoa CĐCT"   ,
                     Cccd        = "0011234534"  ,
-                    Hodem       = "Lê Thị"  ,
-                    Ten         = "AAA"      ,
-                    Bietdanh    = "AAA"      ,
+                    Hodem       = "Vũ Thành "  ,
+                    Ten         = "Trung"      ,
+                    Bietdanh    = "HoaXen"      ,
                     Email       = "aaa@demo.com",
-                    Dienthoai   = "0979xxxx223" ,
-                    Tuoi        = 0
+                    Dienthoai   = "0979xxxx293" ,
+                    Tuoi        = 20,
+                    Tien        = 300000
                 }
             };
+
+
 
         public static Student GetStudentByMsv(string msv)
         {

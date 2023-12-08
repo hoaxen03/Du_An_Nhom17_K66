@@ -1,16 +1,11 @@
 ﻿@{
     ViewData["Title"] = "DanhSachSinhVien";
 }
-
-@model decimal
+@model IEnumerable<ClassFundMVC.Models.ClassFund>
 
 @section mycss{
     <link href="~/httt/css/mycss.css" rel="stylesheet">
 }
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <!-- Demo -->
 <section class="page-section bg-primary" id="demo">
@@ -32,9 +27,6 @@
                 </button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#transactionModal">
                     Quản lý thu chi
-                </button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#FundSevice">
-                    Số Dư Của Quỹ Lớp
                 </button>
             </div>
             <div class="col-6">
@@ -59,36 +51,50 @@
             <tbody id="dsSinhVien">
             </tbody>
         </table>
+        <!-- Số dư quỹ lớp -->
+
     </div>
+</section>
     <!-- Giao diện quản lý thu chi -->
 
-</section>
-<div class="modal fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="transactionModalLabel">Quản lý thu chi</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body" id="transactionModalBody">
-                <!-- Nội dung của view sẽ được tải vào đây -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-            </div>
-        </div>
-    </div>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-<script>
-    $(document).ready(function () {
-        // Gọi hàm load để tải nội dung của view vào modal popup
-        $("#transactionModalBody").load("/Transaction/Index");
-    });
-</script>
 
+<div class=“container”> <h3>Số dư quỹ lớp học</h3> <p id=“show_sodu”></p> </div>
 
 
 <section class="page-section">
@@ -135,26 +141,6 @@
                                 <input type="text" class="form-control" id="tien">
                             </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                        <button type="button" class="btn btn-primary" onclick="save_sinhvien()">Lưu</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><section class="page-section">
-    <div class="container px-4 px-lg-5">
-        <!-- Modal Hiển thị số dư-->
-        <div class="modal fade" id="Fundsevice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Số dư hiện tại của quỹ lớp:</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>Số dư hiện tại là: @Model đồng</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

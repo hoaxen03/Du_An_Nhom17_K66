@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.Net;
 using System.Threading.Tasks;
-namespace Core_WebAPI.Controllers
+namespace Quan_Ly_Quy_Core_API.Controllers
 {
     //[Route("api/[controller]")]
     //[Route("api/san-pham")]

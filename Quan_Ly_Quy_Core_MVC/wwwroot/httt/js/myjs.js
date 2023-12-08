@@ -82,17 +82,17 @@ var btn_action = `
         <button type="button" class="btn btn-info btnSua" onclick="edit_sinhvien()">Sửa</button>
         <button type="button" class="btn btn-danger btnXoa" data-toggle="modal" onclick="dele_sinhvien()">Xóa</button>
     </div >`
-function show_table(arrs) {
-    let tb_row = `<tr class="text-center font-italic font-weight-light">
-        <td>(1)</td>
-        <td>(2)</td>
-        <td>(3)</td>
-        <td>(4)</td>
-        <td>(5)</td>
-        <td>(6)</td>
-        <td>(7)</td>
-        <td>(8)</td>
-        </tr>`;
+//function show_table(arrs) {
+//    let tb_row = `<tr class="text-center font-italic font-weight-light">
+//        <td>(1)</td>
+//        <td>(2)</td>
+//        <td>(3)</td>
+//        <td>(4)</td>
+//        <td>(5)</td>
+//        <td>(6)</td>
+//        <td>(7)</td>
+//        <td>(8)</td>
+//        </tr>`;
 
     arrs.forEach(function show(p) {
         tb_row += `<tr class="httt_row">
@@ -102,14 +102,13 @@ function show_table(arrs) {
         <td>${p.cccd}</td>
         <td>${p.hodem} ${p.ten}</td>
         <td class="text-center">${p.tuoi}</td>
-        <td class="text-center">${btn_action}</td>
         <td>${p.tien}</td>
+        <td class="text-center">${btn_action}</td>
         </tr>`;
     });
 
     // Setting innerHTML as tab variable
-    document.getElementById("dsSinhVien").innerHTML = tb_row;
-}
+//    document.getElementById("dsSinhVien").innerHTML = tb_row;
 
 function clear_all() {
     document.querySelectorAll(".httt_row").forEach(el => el.remove());
