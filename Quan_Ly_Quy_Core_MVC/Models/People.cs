@@ -1,4 +1,4 @@
-﻿namespace Quan_Ly_Quy_Core_MVC.Models
+﻿namespace Quan_Ly_Quy_Core_API.Models
 {
     public abstract class People
     {

@@ -27,9 +27,6 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#transactionModal">
                     Quản lý thu chi
                 </button>
-                <button type="button" class="btn btn-primary" onclick="showBalance()">
-                   Hiển thị số dư
-                </button>
             </div>
             <div class="col-6">
                 <button type="button" id="show" class="btn btn-primary float-end"  onclick="refresh_all()">Làm tươi</button>
@@ -53,18 +50,19 @@
             <tbody id="dsSinhVien">
             </tbody>
         </table>
+        <!-- Số dư quỹ lớp -->
         <div class="modal-content">
             <div class="modal-header"
-                <h5> Tổng số tiền của quỹ lớp hiện tại :</h5>
-                <div id="classMoney"></div> <!-- Đây là thẻ để hiển thị kết quả -->
-            <div>
-        </div>
+            <h5> Tổng số tiền của quỹ lớp hiện tại :</h5>
+            <div id="sodu">
+
+            </div> <!-- Đây là thẻ để hiển thị kết quả -->
+        <div>
+    </div>
+
     </div>
 </section>
     <!-- Giao diện quản lý thu chi -->
-<!-- Số dư quỹ lớp -->
-
-
 <!-- Tạo một cửa sổ modal có id là "balance-modal" -->
 
 <section class="page-section">
@@ -147,4 +145,5 @@
 
 @section myjs{
     <script src="~/httt/js/myjs.js"></script>
+    <script src="~/httt/js/QuanLyQuy.js"></script>
 } 

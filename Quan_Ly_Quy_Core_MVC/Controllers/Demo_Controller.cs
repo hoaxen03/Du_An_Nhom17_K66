@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Quan_Ly_Quy_Core_MVC.Controllers
+namespace Quan_Ly_Quy_Core_API.Controllers
 {
     public class Demo_Controller : Controller
     {

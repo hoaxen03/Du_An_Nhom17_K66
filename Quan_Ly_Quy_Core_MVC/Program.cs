@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Quan_Ly_Quy_Core_MVC;
-using Quan_Ly_Quy_Core_MVC.Controllers;
+using Quan_Ly_Quy_Core_API;
+using Quan_Ly_Quy_Core_API.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Quan_Ly_Quy_Core_MVC.Models;
+using Quan_Ly_Quy_Core_API.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
