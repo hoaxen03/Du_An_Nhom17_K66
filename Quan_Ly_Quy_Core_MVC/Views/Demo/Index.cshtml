@@ -1,7 +1,6 @@
 ﻿@{
     ViewData["Title"] = "DanhSachSinhVien";
 }
-@model IEnumerable<ClassFundMVC.Models.ClassFund>
 
 @section mycss{
     <link href="~/httt/css/mycss.css" rel="stylesheet">
@@ -28,6 +27,9 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#transactionModal">
                     Quản lý thu chi
                 </button>
+                <button type="button" class="btn btn-primary" onclick="showBalance()">
+                   Hiển thị số dư
+                </button>
             </div>
             <div class="col-6">
                 <button type="button" id="show" class="btn btn-primary float-end"  onclick="refresh_all()">Làm tươi</button>
@@ -51,51 +53,19 @@
             <tbody id="dsSinhVien">
             </tbody>
         </table>
-        <!-- Số dư quỹ lớp -->
-
+        <div class="modal-content">
+            <div class="modal-header"
+                <h5> Tổng số tiền của quỹ lớp hiện tại :</h5>
+                <div id="classMoney"></div> <!-- Đây là thẻ để hiển thị kết quả -->
+            <div>
+        </div>
     </div>
 </section>
     <!-- Giao diện quản lý thu chi -->
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Balance)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Balance)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreatedDate)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<!-- Số dư quỹ lớp -->
 
 
-<div class=“container”> <h3>Số dư quỹ lớp học</h3> <p id=“show_sodu”></p> </div>
-
+<!-- Tạo một cửa sổ modal có id là "balance-modal" -->
 
 <section class="page-section">
     <div class="container px-4 px-lg-5">
@@ -177,4 +147,4 @@
 
 @section myjs{
     <script src="~/httt/js/myjs.js"></script>
-}
+} 

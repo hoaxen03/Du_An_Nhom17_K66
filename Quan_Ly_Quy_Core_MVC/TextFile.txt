@@ -1,0 +1,4 @@
+﻿Quản lý thu chi: Cho phép thêm, sửa, xóa các khoản thu chi của lớp học.
+Theo dõi số dư: Hiển thị số dư hiện tại của quỹ lớp học.
+Lịch sử thu chi: Hiển thị lịch sử thu chi của lớp học.
+Báo cáo thu chi: Tạo báo cáo thu chi của lớp học.

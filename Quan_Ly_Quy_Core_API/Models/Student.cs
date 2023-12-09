@@ -35,7 +35,7 @@ namespace Quan_Ly_Quy_Core_API.Models
             this.Tien = _tien;
         }
 
-        static List<Student> ds_sinhvien = new List<Student>
+        static List<Student> ds_SinhVien = new List<Student>
             {
                  new Student{
                           Msv         = "221070002"   ,

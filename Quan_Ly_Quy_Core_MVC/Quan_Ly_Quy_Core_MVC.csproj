@@ -10,7 +10,6 @@
 	<ItemGroup>
 		<Content Remove="Views\Demo\Demo.cshtml" />
 		<Content Remove="wwwroot\httt\assets\favicon.ico" />
-		<Content Remove="wwwroot\httt\assets\img\bg-masthead.jpg" />
 		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\1.jpg" />
 		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\2.jpg" />
 		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\3.jpg" />
@@ -24,12 +23,12 @@
 		<Content Remove="wwwroot\httt\assets\img\portfolio\thumbnails\5.jpg" />
 		<Content Remove="wwwroot\httt\assets\img\portfolio\thumbnails\6.jpg" />
 		<Content Remove="wwwroot\httt\css\styles.css" />
+		<Content Remove="wwwroot\httt\js\myjs.js" />
 		<Content Remove="wwwroot\httt\js\scripts.js" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="wwwroot\httt\assets\favicon.ico" />
-		<None Include="wwwroot\httt\assets\img\bg-masthead.jpg" />
 		<None Include="wwwroot\httt\assets\img\portfolio\fullsize\1.jpg" />
 		<None Include="wwwroot\httt\assets\img\portfolio\fullsize\2.jpg" />
 		<None Include="wwwroot\httt\assets\img\portfolio\fullsize\3.jpg" />
@@ -44,6 +43,7 @@
 		<None Include="wwwroot\httt\assets\img\portfolio\thumbnails\6.jpg" />
 		<None Include="wwwroot\httt\css\styles.css" />
 		<None Include="wwwroot\httt\js\scripts.js" />
+		<None Include="wwwroot\httt\js\myjs.js" />
 	</ItemGroup>
 	<ItemGroup>
 	<Folder Include="Resource\" />

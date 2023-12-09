@@ -14,7 +14,7 @@ namespace Quan_Ly_Quy_Core_API.Controllers
     public class APIStudentController : ControllerBase
     {
         // Định nghĩa ra biến danh sách sinh viên; Để lưu sinh viên khi được add thêm mới
-        public static List<Student> ds_sinhvien = new List<Student>()
+        public static List<Student> ds_SinhVien = new List<Student>()
             {
                 new Student()
                 {
@@ -46,8 +46,8 @@ namespace Quan_Ly_Quy_Core_API.Controllers
                 },
                 new Student()
                 {
-                    Msv         = "221070003"   ,
-                    Lop         = "66-HTTT"     ,
+                    Msv         = "2174801040935"   ,
+                    Lop         = "66B-HTTT"     ,
                     Khoavien    = "Khoa CĐCT"   ,
                     Cccd        = "0011234534"  ,
                     Hodem       = "Vũ Thành "  ,
@@ -65,13 +65,13 @@ namespace Quan_Ly_Quy_Core_API.Controllers
         public static Student GetStudentByMsv(string msv)
         {
             //return ds_sinhvien.Find(i => i.Msv == msv);
-            return ds_sinhvien.Where(i => i.Msv.ToLower().Contains(msv.ToLower())).First();
+            return ds_SinhVien.Where(i => i.Msv.ToLower().Contains(msv.ToLower())).First();
         }
 
         public static Student GetStudentByEmail(string email)
         {
             //return ds_sinhvien.Find(i => i.Msv == msv);
-            return ds_sinhvien.Where(i => i.Email.ToLower().Contains(email.ToLower())).First();
+            return ds_SinhVien.Where(i => i.Email.ToLower().Contains(email.ToLower())).First();
         }
 
         // GET: api/<StudentController>
@@ -79,21 +79,21 @@ namespace Quan_Ly_Quy_Core_API.Controllers
         public IEnumerable<Student> Get()
         {
             // Trả về kết quả cho giao diện API
-            return ds_sinhvien.OrderByDescending(i => i.Msv).AsEnumerable();
+            return ds_SinhVien.OrderByDescending(i => i.Msv).AsEnumerable();
         }
 
         // GET api/<StudentController>/221070001
         [HttpGet("{msv}")]
         public Student Get(string msv)
         {
-            return ds_sinhvien.FirstOrDefault(i => i.Msv == msv);
+            return ds_SinhVien.FirstOrDefault(i => i.Msv == msv);
         }
 
         // GET api/<StudentController>/search/keyword
         [HttpGet("search/{keyword}")]
         public IEnumerable<Student> Search(string keyword)
         {
-            return ds_sinhvien.Where(i => i.Ten.ToLower().Contains(keyword.ToLower()));
+            return ds_SinhVien.Where(i => i.Ten.ToLower().Contains(keyword.ToLower()));
         }
 
         // POST api/<StudentController>
@@ -102,8 +102,8 @@ namespace Quan_Ly_Quy_Core_API.Controllers
         {
             try
             {
-                ds_sinhvien.Add(sv);
-                return Ok(ds_sinhvien);
+                ds_SinhVien.Add(sv);
+                return Ok(ds_SinhVien);
             }
             catch (Exception ex)
             {
@@ -138,24 +138,20 @@ namespace Quan_Ly_Quy_Core_API.Controllers
                 {
                     throw new ArgumentNullException("item");
                 }
-                int index = ds_sinhvien.FindIndex(p => p.Msv == sv.Msv);
+                int index = ds_SinhVien.FindIndex(p => p.Msv == sv.Msv);
                 if (index == -1)
                 {
                     return BadRequest("Msg: Mã sinh viên không tồn tại");
                 }
-                ds_sinhvien.RemoveAt(index);
-                ds_sinhvien.Add(sv);
-                return Ok(ds_sinhvien);
+                ds_SinhVien.RemoveAt(index);
+                ds_SinhVien.Add(sv);
+                return Ok(ds_SinhVien);
 
             }
             catch (Exception ex)
             {
                 return Content(ex.ToString());
             }
-
-
-
-
 
         }
 
@@ -176,7 +172,7 @@ namespace Quan_Ly_Quy_Core_API.Controllers
                 // B2: Cập nhật các trường thông tin
 
                 // B3: Thông báo kết quả
-                return Ok(ds_sinhvien);
+                return Ok(ds_SinhVien);
             }
             catch (Exception ex)
             {
@@ -194,8 +190,8 @@ namespace Quan_Ly_Quy_Core_API.Controllers
                 // B1: Kiểm tra sự tồn tài của đối tượng theo id
                 if (sv_del != null)
                 {
-                    ds_sinhvien.Remove(sv_del);
-                    return Ok(ds_sinhvien);
+                    ds_SinhVien.Remove(sv_del);
+                    return Ok(ds_SinhVien);
                 }
                 else
                     return BadRequest("Msg: Mã sinh viên không tồn tại");
@@ -212,7 +208,7 @@ namespace Quan_Ly_Quy_Core_API.Controllers
         {
             try
             {
-                ds_sinhvien.Clear();
+                ds_SinhVien.Clear();
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
             catch (Exception ex)

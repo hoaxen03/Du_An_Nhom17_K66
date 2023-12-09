@@ -32,7 +32,7 @@ namespace Quan_Ly_Quy_Core_API.Controllers
 
             [HttpGet]
             [Route("{id}")]
-            public KhoanChi GetKhoanChi(int tenKhoanChi)
+            public KhoanChi GetKhoanChi(string tenKhoanChi)
             {
                 return ls_KhoanChi.FirstOrDefault(i => i.Id == id);
             }

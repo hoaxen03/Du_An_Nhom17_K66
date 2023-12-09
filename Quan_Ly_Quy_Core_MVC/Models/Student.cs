@@ -19,7 +19,7 @@ namespace Quan_Ly_Quy_Core_MVC.Models
 
         public Student(
             string _msv, string _lop, string _khoavien,
-            string _cccd, string _hodem, string _ten, string _bietdanh, string _email, string _dienthoai, int _tuoi ,int _tien) : base(_cccd, _hodem, _ten, _bietdanh, _email, _dienthoai, _tuoi,_tien)
+            string _cccd, string _hodem, string _ten, string _bietdanh, string _email, string _dienthoai, int _tuoi ,int _tien) : base(_cccd, _hodem, _ten, _bietdanh, _email, _dienthoai, _tuoi, _tien)
         {
             this.Msv = _msv;
             this.Lop = _lop;
@@ -34,7 +34,7 @@ namespace Quan_Ly_Quy_Core_MVC.Models
             this.Tien = _tien;
         }
 
-        static List<Student> ds_sinhvien = new List<Student>
+        static List<Student> ds_SinhVien = new List<Student>
             {
                  new Student{
                           Msv         = "221070002"   ,

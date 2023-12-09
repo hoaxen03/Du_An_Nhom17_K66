@@ -1,6 +1,6 @@
 ﻿#mainNav {
     box-shadow: none;
-    background-color: #3a9c59;
+    background-color: #FFB6C1;
 }
 
 .py-5 {
@@ -12,3 +12,40 @@
     padding: 0rem 0;
     padding-top: 7rem !important;
 }
+.modal {
+    display: none; /* Ẩn mặc định */
+    position: fixed; /* Vị trí cố định */
+    z-index: 1; /* Hiển thị trên cùng */
+    left: 0;
+    top: 0;
+    width: 100%; /* Chiều rộng toàn màn hình */
+    height: 100%; /* Chiều cao toàn màn hình */
+    overflow: auto; /* Cho phép cuộn nếu cần */
+    background-color: rgb(0, 0, 0); /* Màu nền */
+    background-color: rgba(0, 0, 0, 0.4); /* Màu nền với độ trong suốt */
+}
+
+/* Định dạng nội dung modal */
+.modal-content {
+    background-color: #fefefe; /* Màu nền trắng */
+    margin: 15% auto; /* Căn giữa */
+    padding: 20px; /* Đệm */
+    border: 1px solid #888; /* Viền */
+    width: 80%; /* Chiều rộng */
+}
+
+/* Định dạng nút đóng */
+.close {
+    color: #aaa; /* Màu xám */
+    float: right; /* Căn phải */
+    font-size: 28px; /* Cỡ chữ */
+    font-weight: bold; /* In đậm */
+}
+
+    /* Thay đổi màu nút đóng khi di chuột */
+    .close:hover,
+    .close:focus {
+        color: black; /* Màu đen */
+        text-decoration: none; /* Không gạch chân */
+        cursor: pointer; /* Con trỏ chuột */
+    }

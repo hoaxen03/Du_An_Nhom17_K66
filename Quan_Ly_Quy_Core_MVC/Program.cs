@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Quan_Ly_Quy_Core_MVC;
-using Quan_Ly_Quy_Core_MVC.Areas.Identity.Data;
 using Quan_Ly_Quy_Core_MVC.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,13 +17,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddEndpointsApiExplorer();
 
 // Configure the HTTP request pipeline.
 var app = builder.Build();
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-}
 if(app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -40,11 +36,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller}/{action}");
-});
 
 app.Run();
