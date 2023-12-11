@@ -8,11 +8,12 @@ using System.Xml.Linq;
     {
         [Route("api/[controller]")]
         [ApiController]
-        public class KhoanChiController : ControllerBase
+        public class APIThuChiController : ControllerBase
         {
-            private static List<KhoanChi> ls_KhoanChi = new List<KhoanChi> {
-            new KhoanChi { Id = 1 ,TenKhoanChi = "8/3", SoLuongChi = 33, SoTienCanChi = 3300,NgayChi=8,NamChi=2023},
-            new KhoanChi { Id = 2 ,TenKhoanChi = "mua phấn", SoLuongChi = 2, SoTienCanChi = 30000,NgayChi=14,NamChi=2023},
+            private static List<ThuChi> ls_ThuChi = new List<ThuChi> {
+            new ThuChi { Id = 1 ,TenKhoanChi = "8/3", Loai1 ="Chi", SoTien = 3300,NgayChi=8,NamChi=2023},
+            new ThuChi {Id = 3 ,TenKhoanChi ="Bán sắt vụn",Loai1 ="Thu",SoTien = 50000,NgayChi=7,NamChi=2023},
+            new ThuChi { Id = 2 ,TenKhoanChi = "mua phấn",Loai1="Chi", SoTien = 30000,NgayChi=14,NamChi=2023},
         };
             private int id;
             //public void AddProduct()
@@ -25,23 +26,23 @@ using System.Xml.Linq;
             //}
 
             [HttpGet]
-            public IEnumerable<KhoanChi> GetKhoanChis()
+            public IEnumerable<ThuChi> GetThuChi()
             {
-                return ls_KhoanChi.OrderByDescending(i => i.Id).AsEnumerable();
+                return ls_ThuChi.OrderByDescending(i => i.Id).AsEnumerable();
             }
 
             [HttpGet]
             [Route("{id}")]
-            public KhoanChi GetKhoanChi(string tenKhoanChi)
+            public ThuChi GetKhoanChi(string tenKhoanChi)
             {
-                return ls_KhoanChi.FirstOrDefault(i => i.Id == id);
+                return ls_ThuChi.FirstOrDefault(i => i.Id == id);
             }
 
             [HttpGet]
             [Route("search/{keyword}")]
-            public IEnumerable<KhoanChi> SearchName(string keyword)
+            public IEnumerable<ThuChi> SearchName(string keyword)
             {
-                return ls_KhoanChi.Where(i => i.TenKhoanChi.ToLower().Contains(keyword.ToLower()));
+                return ls_ThuChi.Where(i => i.TenKhoanChi.ToLower().Contains(keyword.ToLower()));
             }
 
 
@@ -63,11 +64,11 @@ using System.Xml.Linq;
 
             [HttpPost]
             [Route("add")]
-            public HttpResponseMessage AddProduct([FromBody] KhoanChi prod)
+            public HttpResponseMessage AddProduct([FromBody] ThuChi prod)
             {
                 try
                 {
-                    ls_KhoanChi.Add(prod);
+                    ls_ThuChi.Add(prod);
                     return new HttpResponseMessage(HttpStatusCode.OK);
                 }
                 catch (Exception ex)
@@ -138,19 +139,19 @@ using System.Xml.Linq;
 
             [HttpPut]
             [Route("update/{id}")]
-            public async Task<JsonResult> UpdateProduct(int id, KhoanChi prod)
+            public async Task<JsonResult> UpdateProduct(int id, ThuChi prod)
             {
                 try
                 {
                     // Tìm đối tượng với ID
-                    var prod_old = ls_KhoanChi.Find(i => i.Id == prod.Id);
+                    var prod_old = ls_ThuChi.Find(i => i.Id == prod.Id);
 
                     if (prod_old != null)
                     {
                         var prod_new = prod;
 
-                        prod_old.SoLuongChi = prod_new.SoLuongChi;
-                        prod_old.SoTienCanChi = prod_new.SoTienCanChi;
+                        prod_old.Loai1 = prod_new.Loai1;
+                        prod_old.SoTien = prod_new.SoTien;
                         prod_old.NgayChi = prod_new.NgayChi;
                         prod_old.NamChi = prod_new.NamChi;
 
@@ -175,11 +176,11 @@ using System.Xml.Linq;
                 try
                 {
                     // Tìm đối tượng Product theo ID
-                    var prod_by_id = ls_KhoanChi.Find(i => i.Id == id);
+                    var prod_by_id = ls_ThuChi.Find(i => i.Id == id);
 
                     if (prod_by_id.Id != null)
                     {
-                        ls_KhoanChi.Remove(prod_by_id);
+                        ls_ThuChi.Remove(prod_by_id);
                         return new HttpResponseMessage(HttpStatusCode.OK);
                     }
                     else
@@ -200,7 +201,7 @@ using System.Xml.Linq;
             {
                 try
                 {
-                    ls_KhoanChi.Clear();
+                    ls_ThuChi.Clear();
                     return new HttpResponseMessage(HttpStatusCode.OK);
                 }
                 catch (Exception ex)

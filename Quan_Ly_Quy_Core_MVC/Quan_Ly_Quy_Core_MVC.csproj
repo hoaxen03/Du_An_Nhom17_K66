@@ -8,8 +8,6 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<Content Remove="Views\Demo\Demo.cshtml" />
-		<Content Remove="Views\Demo\ThuChi.cshtml" />
 		<Content Remove="wwwroot\httt\assets\favicon.ico" />
 		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\1.jpg" />
 		<Content Remove="wwwroot\httt\assets\img\portfolio\fullsize\2.jpg" />
@@ -25,9 +23,10 @@
 		<Content Remove="wwwroot\httt\assets\img\portfolio\thumbnails\6.jpg" />
 		<Content Remove="wwwroot\httt\css\styles.css" />
 		<Content Remove="wwwroot\httt\js\myjs.js" />
+		<Content Remove="wwwroot\httt\js\QLthuchi.js" />
 		<Content Remove="wwwroot\httt\js\QuanLyQuy.js" />
 		<Content Remove="wwwroot\httt\js\scripts.js" />
-		<Content Remove="wwwroot\httt\js\ThuChi.js" />
+		<Content Remove="wwwroot\httt\js\NHANThuChi.js" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -48,7 +47,8 @@
 		<None Include="wwwroot\httt\js\QuanLyQuy.js" />
 		<None Include="wwwroot\httt\js\scripts.js" />
 		<None Include="wwwroot\httt\js\myjs.js" />
-		<None Include="wwwroot\httt\js\ThuChi.js" />
+		<None Include="wwwroot\httt\js\QLthuchi.js" />
+		<None Include="wwwroot\httt\js\NHANThuChi.js" />
 	</ItemGroup>
 	<ItemGroup>
 	<Folder Include="Resource\" />
@@ -71,14 +71,10 @@
 	
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Demo\Demo.cshtml" />
-    <UpToDateCheckInput Remove="Views\Demo\ThuChi.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Demo\Demo.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Demo\ThuChi.cshtml" />
-    <_ContentIncludedByDefault Remove="wwwroot\httt\js\QuanLyQuy.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\httt\js\ThuChi.js" />
   </ItemGroup>
 
   <ItemGroup>

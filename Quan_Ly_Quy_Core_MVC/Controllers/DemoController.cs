@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Quan_Ly_Quy_Core_API.Controllers
 {
@@ -8,5 +9,7 @@ namespace Quan_Ly_Quy_Core_API.Controllers
         {
             return View();
         }
+        public IActionResult ThuChi()
+        {  return View("ThuChi"); }
     }
 }

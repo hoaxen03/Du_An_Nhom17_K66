@@ -1,24 +1,23 @@
 ﻿namespace Quan_Ly_Quy_Core_API.Models
 {
-    public class KhoanChi
+    public class ThuChi
     {
         int id; 
         string tenKhoanChi;//tên khoản cần chi
-        int soLuongChi;//số lượng cần chi
-        double soTienCanChi;//số tiền cân chi
+        string Loai;//Phân Loại
+        double soTien;//số tiền cân chi
         int ngayChi;//ngày chi 
         int namChi;//năm chi
 
-        public KhoanChi()
+        public ThuChi()
         {
 
         }
         public int Id { get => id; set => id = value; }
         public string TenKhoanChi { get => tenKhoanChi; set => tenKhoanChi = value; }
-        public int SoLuongChi { get => soLuongChi; set => soLuongChi = value; }
-        public double SoTienCanChi { get => soTienCanChi; set => soTienCanChi = value; }
+        public double SoTien { get => soTien; set => soTien = value; }
         public int NgayChi { get => ngayChi; set => ngayChi = value; }
         public int NamChi { get => namChi; set => namChi = value; }
-
+        public string Loai1 { get => Loai; set => Loai = value; }
     }
 }

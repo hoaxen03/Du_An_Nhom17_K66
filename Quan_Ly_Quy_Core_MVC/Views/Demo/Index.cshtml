@@ -1,7 +1,6 @@
 ﻿@{
     ViewData["Title"] = "DanhSachSinhVien";
 }
-
 @section mycss{
     <link href="~/httt/css/mycss.css" rel="stylesheet">
 }
@@ -24,9 +23,6 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSinhVien">
                     Thêm mới
                 </button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#transactionModal">
-                    Quản lý thu chi
-                </button>
             </div>
             <div class="col-6">
                 <button type="button" id="show" class="btn btn-primary float-end"  onclick="refresh_all()">Làm tươi</button>
@@ -48,22 +44,21 @@
                 </tr>
             </thead>
             <tbody id="dsSinhVien">
-            </tbody>
+            </tbody> 
         </table>
         <!-- Số dư quỹ lớp -->
-        <div class="modal-content">
-            <div class="modal-header"
-            <h5> Tổng số tiền của quỹ lớp hiện tại :</h5>
-            <div id="sodu">
-
-            </div> <!-- Đây là thẻ để hiển thị kết quả -->
+        <div class="modal-content" style=" background-color: rgba(255, 255, 255, 0.7);font-size:30px;color: orangered;>
+            <div class="modal-body"
+                <h3> Tổng Số Tiền Của Quỹ Lớp Hiện Tại : </h3><div id="sodu"> đ</div>
+             <!-- Đây là thẻ để hiển thị kết quả -->
+             </div>
         <div>
     </div>
 
     </div>
 </section>
-    <!-- Giao diện quản lý thu chi -->
-<!-- Tạo một cửa sổ modal có id là "balance-modal" -->
+
+
 
 <section class="page-section">
     <div class="container px-4 px-lg-5">
@@ -141,6 +136,7 @@
         </div>
     </div>
 </section>
+
 
 
 @section myjs{

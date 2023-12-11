@@ -1,6 +1,6 @@
 #mainNav {
     box-shadow: none;
-    background-color: #c13058;
+    background: linear-gradient(to right, #9e3838,#efaf3e, #f4bebf);
 }
 
 .py-5 {
@@ -11,4 +11,54 @@
 .page-section {
     padding: 0rem 0;
     padding-top: 7rem !important;
+    opacity:0.95;
+
+}
+.bi-house-door {
+    font-size:40px
+}
+.nav-link {
+    font-size: 35px;
+    font-weight:100
+}
+.masthead {
+    opacity: 8;
+}
+.footer1 {
+    background: linear-gradient(to right, #efaf3e, #3d8283);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+}
+body {
+    background-image: url(/httt/assets/img/bg-masthead.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.modal-container {
+    display: none; /* Hide the modal container by default */
+    position: fixed; /* Fix the modal container to the viewport */
+    top: 0; /* Position the modal container at the top of the viewport */
+    left: 0; /* Position the modal container at the left of the viewport */
+    width: 100vw; /* Set the modal container width to 100% of the viewport width */
+    height: 100vh; /* Set the modal container height to 100% of the viewport height */
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+    z-index: 9999; /* Set the modal container z-index to a high value to ensure it appears on top of other elements */
+    transition: display 0.5s ease-in-out;
+}
+.modal fade {
+    transition: display 0.5s ease-in-out;
+}
+table {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter:blur(2px);
+}
+.modal-backdrop.show {
+    display:none;
+}
+text-center {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
 }

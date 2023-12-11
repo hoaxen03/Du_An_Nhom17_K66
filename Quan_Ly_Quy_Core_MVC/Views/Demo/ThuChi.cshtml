@@ -1,75 +1,82 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
 @{
     ViewData["Title"] = "Thu Chi";
+
 }
 
-<!DOCTYPE html>
 <section class="page-section bg-primary" id="demo">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 text-center">
-                <h2 class="text-white mt-0">QUẢN LÝ THU CHI</h2>
+                <h2 class="text-white mt-0" style="backdrop-filter: blur(2px);">
+                    QUẢN LÝ THU CHI
+                </h2>
                 <hr class="divider divider-light" />
             </div>
         </div>
     </div>
 </section>
-    <h1>Quản lý thu chi</h1>
-<section class="page-section">
-    <div class="container px-4 px-lg-5">
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên khoản thu/chi</th>
-                            <th>Số tiền</th>
-                            <th>Số Lượng thu chi</th>
-                            <th>Ngày</th>
-                            <th>Năm</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody id="data"></tbody>
-                </table>
-            </div>
-        </div>
-</section>
-    
-        <div class="row">
-            <div class="col-md-12">
-                <form action="/ThuChi" method="post">
-                    <div class="form-group">
-                        <label for="tenkhoanthuchi">Tên khoản thu/chi</label>
-                        <input type="text" class="form-control" id="tenkhoanthuchi" name="tenkhoanthuchi">
-                    </div>
-                    <div class="form-group">
-                        <label for="sotien">Số tiền</label>
-                        <input type="number" class="form-control" id="sotien" name="sotien">
-                    </div>
-                    <div class="form-group">
-                        <label for="loai">Loại</label>
-                        <select class="form-control" id="loai" name="loai">
-                            <option value="thu">Thu</option>
-                            <option value="chi">Chi</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="ngay">Ngày</label>
-                        <input type="date" class="form-control" id="ngay" name="ngay">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Thêm</button>
-                </form>
-            </div>
-        </div>
-    </div>
 
+
+<div class="container">
+
+    <p class="text-center" style="backdrop-filter: blur(2px);">Tổng số tiền quỹ: 
+        <span id="total"></span></p>
+
+    <table class="table table-bordered" id="tableThuChi">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ngày chi</th>
+                <th>Năm chi</th>
+                <th>Loại chi</th>
+                <th>Số tiền</th>
+                <th>Tên khoản chi</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+
+
+    <h2 class="text-center">Thêm mới chi</h2>
+    <form class="container" id="addThuChiForm" style="background-color: rgba(255, 255, 255, 0.7);backdrop-filter: blur(2px);">
+        <div class="mb-3">
+            <label for="ngayChi" class="form-label">Ngày chi:</label>
+            <input type="date" class="form-control" id="ngayChi" name="ngayChi" required>
+        </div>
+        <div class="mb-3">
+            <label for="namChi" class="form-label">Năm chi:</label>
+            <input type="number" class="form-control" id="namChi" name="namChi" required>
+        </div>
+        <div class="mb-3">
+            <label for="Loai" class="form-label">Loại chi:</label>
+            <select class="form-control" id="Loai" name="Loai" required>
+                <option value="Thu">Thu</option>
+                <option value="Chi">Chi</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="soTien" class="form-label">Số tiền:</label>
+            <input type="number" class="form-control" id="soTien" name="soTien" required>
+        </div>
+        <div class="mb-3">
+            <label for="TenKhoanChi" class="form-label">Tên khoản chi:</label>
+            <input type="text" class="form-control" id="TenKhoanChi" name="TenKhoanChi" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm</button>
+    </form>
+</div>
 @section mycss {
     <link href="~/httt/css/mycss.css" rel="stylesheet">
 }
-@section myjs {
-    <<link href="~/httt/js/ThuChi.js" rel="stylesheet" />
+@section QLthuchi {
+    <script src="~/httt/js/QLthuchi.js" ></script>
+    <script src="~/httt/js/QuanLyQuy.js"></script>
+
 }
