@@ -7,11 +7,9 @@
         string Loai;
         double soTien;//số tiền cân chi
         int ngayChi;//ngày chi 
-        int namChi;//năm chi
         public int Id { get => id; set => id = value; }
         public string TenKhoanChi { get => tenKhoanChi; set => tenKhoanChi = value; }
         public int NgayChi { get => ngayChi; set => ngayChi = value; }
-        public int NamChi { get => namChi; set => namChi = value; }
         public string Loai1 { get => Loai; set => Loai = value; }
         public double SoTien { get => soTien; set => soTien = value; }
 
@@ -19,13 +17,13 @@
         {
 
         }
-        public ThuChi(int _id, string _tenKhoanChi, double _soTien, int _ngayChi, int _namChi)
+        public ThuChi(int _id, string _tenKhoanChi, double _soTien, int _ngayChi,string _Loai)
         {
             Id = _id;
             TenKhoanChi = _tenKhoanChi;
             SoTien = _soTien;
             NgayChi = _ngayChi;
-            NamChi = _namChi;
+            Loai1 = _Loai;
         }
         static List<ThuChi> ds_ThuChi = new List<ThuChi>
             {
@@ -34,8 +32,7 @@
                           TenKhoanChi = "Kỉ Yếu"      ,
                           Loai1 = "Chi",
                           SoTien = 10000000,
-                          NgayChi      = 2,
-                          NamChi       = 2023,
+                          NgayChi      = 2/10/2023,
                      },
 
             };

@@ -33,7 +33,6 @@
             <tr>
                 <th>ID</th>
                 <th>Ngày chi</th>
-                <th>Năm chi</th>
                 <th>Loại chi</th>
                 <th>Số tiền</th>
                 <th>Tên khoản chi</th>
@@ -44,15 +43,12 @@
     </table>
 
 
-    <h2 class="text-center">Thêm mới chi</h2>
-    <form class="container" id="addThuChiForm" style="background-color: rgba(255, 255, 255, 0.7);backdrop-filter: blur(2px);">
+
+    <h2 class="text-center px-2 px-lg-2" style="background-color: rgba(255, 255, 255, 0.7);backdrop-filter: blur(2px);">Thêm mới</h2>
+    <form class="container px-4 px-lg-5" id="addThuChiForm" style="background-color: rgba(255, 255, 255, 0.7);backdrop-filter: blur(2px);">
         <div class="mb-3">
             <label for="ngayChi" class="form-label">Ngày chi:</label>
             <input type="date" class="form-control" id="ngayChi" name="ngayChi" required>
-        </div>
-        <div class="mb-3">
-            <label for="namChi" class="form-label">Năm chi:</label>
-            <input type="number" class="form-control" id="namChi" name="namChi" required>
         </div>
         <div class="mb-3">
             <label for="Loai" class="form-label">Loại chi:</label>
@@ -78,5 +74,6 @@
 @section QLthuchi {
     <script src="~/httt/js/QLthuchi.js" ></script>
     <script src="~/httt/js/QuanLyQuy.js"></script>
+    <script src="~/httt/js/myjs.js"></script>
 
 }
