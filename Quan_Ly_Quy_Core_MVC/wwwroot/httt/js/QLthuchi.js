@@ -1,5 +1,5 @@
 ﻿const url1 = "http://localhost:5077/api/ThuChi"; // Thay đổi URL API phù hợp
-const totalFromQuanLyQuy = window.globalThis.total;
+const total = window.globalThis.total;
 
 // Hàm lấy dữ liệu thu chi
 async function getThuChi(url1) {
@@ -7,12 +7,24 @@ async function getThuChi(url1) {
         method: "GET",
         headers: {
             "Content-Type": "application/json; charset=utf-8",
-        },
-    };
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "PUT,GET,POST,DELETE,OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Origin, X-Auth-Token"
+        }
+    }
     const response = await fetch(url1,options);
     const data1 = await response.json();
     return data1;
 }
+async function getThuChiById(id) {
+    const options = {
+        method: "GET",
+    };
+    const response = await fetch(url1 + "/" + id, options);
+    const data1 = await response.json();
+    return data1;
+}
+
 // Kiểm tra giá trị của biến total
 if (total > 1000000) {
     console.log("Số dư quỹ lớp học lớn hơn 1 triệu đồng");
@@ -21,19 +33,9 @@ if (total > 1000000) {
 }
 
 // Hàm tính tổng số tiền quỹ
-/*
 function calculateTotal(data) {
-    total = 0;
-    data.forEach((item) => {
-        if (item.loai === "Thu") {
-            total += item.soTien;
-        } else if (item.loai === "Chi") {
-            total -= item.soTien;
-        }
-    });
     return total;
 }
-*/
 
 // Hàm hiển thị dữ liệu thu chi
 function showThuChi(data1) {
@@ -45,6 +47,11 @@ function showThuChi(data1) {
       <td>${item.Loai}</td>
       <td>${item.soTien.toLocaleString("vi-VN")}</td>
       <td>${item.tenKhoanChi}</td>
+      <td>
+      <button onclick="showThuChiDetail(${item.id})">Xem</button>
+      <button onclick="editThuChi(${item.id})">Sửa</button>
+      <button onclick="deleteThuChi(${item.id})">Xóa</button>
+    </td>
     </tr>`;
     });
     document.getElementById("tableBody").innerHTML = tableContent;
@@ -126,3 +133,61 @@ document.getElementById("tableBody").addEventListener("click", (event) => {
         deleteThuChi(id);
     }
 });
+function showThuChiDetail(id) {
+    // Lấy thông tin khoản thu chi
+    const thuChi = await getThuChiById(id);
+
+    // Tạo modal
+    const modal = new bootstrap.Modal(document.getElementById("modal-thu-chi"));
+
+    // Thêm nội dung vào modal
+    modal.find(".modal-body").html(`
+    <h4>Thông tin khoản thu chi</h4>
+    <table>
+      <tr>
+        <td>ID</td>
+        <td>${thuChi.id}</td>
+      </tr>
+      <tr>
+        <td>Ngày chi</td>
+        <td>${thuChi.ngayChi}</td>
+      </tr>
+      <tr>
+        <td>Loại</td>
+        <td>${thuChi.Loai}</td>
+      </tr>
+      <tr>
+        <td>Số tiền</td>
+        <td>${thuChi.soTien.toLocaleString("vi-VN")}</td>
+      </tr>
+      <tr>
+        <td>Tên khoản chi</td>
+        <td>${thuChi.tenKhoanChi}</td>
+      </tr>
+    </table>
+  `);
+
+    // Hiển thị modal
+    modal.show();
+}
+async function editThuChi(id) {
+    // Lấy thông tin khoản thu chi
+    const thuChi = await getThuChiById(id);
+
+    // Tạo form sửa
+    const form = document.createElement("form");
+    form.action = "/api/thu-chi/edit";
+    form.method = "post";
+
+    // Điền thông tin khoản thu chi vào form
+    form.appendChild(document.createElement("input"));
+    form.appendChild(document.createElement("input"));
+    form.appendChild(document.createElement("input"));
+    form.appendChild(document.createElement("input"));
+    form.appendChild(document.createElement("input"));
+
+    // Hiển thị form
+    const modal = new bootstrap.Modal(document.getElementById("modal-thu-chi"));
+    modal.find(".modal-body").html(form);
+    modal.show();
+}

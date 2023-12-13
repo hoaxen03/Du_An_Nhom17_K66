@@ -27,7 +27,7 @@ namespace Quan_Ly_Quy_Core_API.Controllers
                     Email       = "abc@demo.com",
                     Dienthoai   = "0961xxxx527" ,
                     Tuoi        = 20,
-                    Tien        = 100000
+                    Tien        = 500000
                 },
                 new Student()
                 {
@@ -41,7 +41,7 @@ namespace Quan_Ly_Quy_Core_API.Controllers
                     Email       = "abcd@demo.com",
                     Dienthoai   = "0976xxxx222" ,
                     Tuoi        = 20,
-                    Tien        = 200000
+                    Tien        = 700000
                 },
                 new Student()
                 {

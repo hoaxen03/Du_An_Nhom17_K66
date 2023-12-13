@@ -1,7 +1,6 @@
 ﻿// const url = "http://localhost:5077/api/Student";
 // let test;
 let data;
-let total = 0;
 // Khai báo biến options bên ngoài hàm getdata
 const options = {
     method: "GET",

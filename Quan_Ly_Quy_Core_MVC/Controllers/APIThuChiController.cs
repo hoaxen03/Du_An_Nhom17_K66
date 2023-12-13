@@ -153,6 +153,7 @@ using System.Xml.Linq;
                         prod_old.Loai1 = prod_new.Loai1;
                         prod_old.SoTien = prod_new.SoTien;
                         prod_old.NgayChi = prod_new.NgayChi;
+                        prod_old.TenKhoanChi = prod_new.TenKhoanChi;
 
                         return new JsonResult(prod);
                     }
