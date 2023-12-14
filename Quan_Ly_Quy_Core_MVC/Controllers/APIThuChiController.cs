@@ -11,9 +11,10 @@ using System.Xml.Linq;
         public class APIThuChiController : ControllerBase
         {
             private static List<ThuChi> ls_ThuChi = new List<ThuChi> {
-            new ThuChi { Id = 1 ,TenKhoanChi = "8/3", Loai1 ="Chi", SoTien = 3300,NgayChi=8/3/2023},
-            new ThuChi {Id = 3 ,TenKhoanChi ="Bán sắt vụn",Loai1 ="Thu",SoTien = 50000,NgayChi=7/10/2023},
-            new ThuChi { Id = 2 ,TenKhoanChi = "mua phấn",Loai1="Chi", SoTien = 30000,NgayChi=14 / 5 / 2023},
+            new ThuChi { Id = 1 ,TenKhoanChi = "8/3", Loai ="Chi", SoTien = 330000,NgayChi=8/3/2023},
+            new ThuChi {Id = 3 ,TenKhoanChi ="Bán sắt vụn",Loai ="Thu",SoTien = 50000,NgayChi=7/10/2023},
+            new ThuChi { Id = 2 ,TenKhoanChi = "mua phấn",Loai="Chi", SoTien = 30000,NgayChi=14 / 5 / 2023},
+            new ThuChi{Id = 4 ,TenKhoanChi = "Thu tiền liên hoan",Loai ="Thu",SoTien= 500000 ,NgayChi= 18 / 7 /2023},
         };
             private int id;
             //public void AddProduct()
@@ -150,7 +151,7 @@ using System.Xml.Linq;
                     {
                         var prod_new = prod;
 
-                        prod_old.Loai1 = prod_new.Loai1;
+                        prod_old.Loai = prod_new.Loai;
                         prod_old.SoTien = prod_new.SoTien;
                         prod_old.NgayChi = prod_new.NgayChi;
                         prod_old.TenKhoanChi = prod_new.TenKhoanChi;

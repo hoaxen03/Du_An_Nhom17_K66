@@ -1,57 +1,56 @@
-﻿const url1 = "http://localhost:5077/api/ThuChi"; // Thay đổi URL API phù hợp
-const total = window.globalThis.total;
-
+﻿const url = "http://localhost:5077/api/ThuChi"; // Thay đổi URL API phù hợp
+import { total } from "./QuanLyQuy";
+if (typeof total === "undefined") {
+    console.error("Không thể lấy được biến total từ QuanLyQuy.js");
+    return;
+}
 // Hàm lấy dữ liệu thu chi
-async function getThuChi(url1) {
+async function getThuChi(url)
+{
     const options = {
         method: "GET",
         headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "PUT,GET,POST,DELETE,OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Origin, X-Auth-Token"
-        }
-    }
-    const response = await fetch(url1,options);
-    const data1 = await response.json();
-    return data1;
-}
-async function getThuChiById(id) {
-    const options = {
-        method: "GET",
+            "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Methods": 'PUT,GET,HEAD,POST,DELETE,OPTIONS',
+        },
     };
-    const response = await fetch(url1 + "/" + id, options);
-    const data1 = await response.json();
-    return data1;
-}
 
-// Kiểm tra giá trị của biến total
-if (total > 1000000) {
-    console.log("Số dư quỹ lớp học lớn hơn 1 triệu đồng");
-} else {
-    console.log("Số dư quỹ lớp học nhỏ hơn hoặc bằng 1 triệu đồng");
+    const response = await fetch(url, options);
+    const data = await response.json();
+    total = calculateTotal(data);
+    return data;
 }
+getThuChi(url, total);
 
 // Hàm tính tổng số tiền quỹ
 function calculateTotal(data) {
+    total = 0;
+    data.forEach((item) => {
+        if (item.loai === "Thu") {
+            total += item.soTien;
+        } else if (item.loai === "Chi") {
+            total -= item.soTien;
+        }
+    });
     return total;
+    console.log(total);
 }
 
 // Hàm hiển thị dữ liệu thu chi
-function showThuChi(data1) {
+function showThuChi(data) {
     let tableContent = "";
-    data1.forEach((item) => {
+    data.forEach((item) => {
         tableContent += `<tr>
       <td>${item.id}</td>
       <td>${item.ngayChi}</td>
-      <td>${item.Loai}</td>
+      <td>${item.loai}</td>
       <td>${item.soTien.toLocaleString("vi-VN")}</td>
       <td>${item.tenKhoanChi}</td>
       <td>
-      <button onclick="showThuChiDetail(${item.id})">Xem</button>
-      <button onclick="editThuChi(${item.id})">Sửa</button>
-      <button onclick="deleteThuChi(${item.id})">Xóa</button>
-    </td>
+        <button type="button" data-id="${item.id}" class="btn-view btn-success">Xem</button>
+        <button type="button" data-id="${item.id}" class="btn-edit btn-info">Sửa</button>
+        <button type="button" data-id="${item.id}" class="btn-delete btn-danger">Xóa</button>
+      </td>
     </tr>`;
     });
     document.getElementById("tableBody").innerHTML = tableContent;
@@ -60,21 +59,21 @@ function showThuChi(data1) {
 }
 
 // Hàm thêm mới dữ liệu thu chi
-async function addThuChi(data1) {
+async function addThuChi(data) {
     const options = {
         method: "POST",
         headers: {
             "Content-Type": "application/json; charset=utf-8",
         },
-        body: JSON.stringify(data1),
+        body: JSON.stringify(data),
     };
     try {
-        const response = await fetch(url1, options);
+        const response = await fetch(url, options);
         const result = await response.json();
         if (result.success) {
             console.log("Thêm dữ liệu thành công");
             // Cập nhật dữ liệu
-            const updatedData = await getThuChi(url1);
+            const updatedData = await getThuChi(url);
             total = calculateTotal(updatedData);
             showThuChi(updatedData);
         } else {
@@ -91,7 +90,7 @@ async function deleteThuChi(id) {
         method: "DELETE",
     };
     try {
-        const response = await fetch(url1 + "/" + id, options);
+        const response = await fetch(url + "/" + id, options);
         const result = await response.json();
         if (result.success) {
             console.log("Xóa dữ liệu thành công");
@@ -108,22 +107,22 @@ async function deleteThuChi(id) {
 }
 
 // Lấy dữ liệu ban đầu
-getThuChi(url1).then((data1) => {
-    total = calculateTotal(data1);
-    showThuChi(data1);
+getThuChi(url).then((data) => {
+    total = calculateTotal(data);
+    showThuChi(data);
 });
 
 // Sự kiện thêm mới dữ liệu
 document.getElementById("addThuChiForm").addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const data1 = {
+    const data = {
         ngayChi: formData.get("ngayChi"),
-        Loai: formData.get("Loai"),
+        loai: formData.get("loai"),
         soTien: parseFloat(formData.get("soTien")),
-        tenKhoanChi: formData.get("TenKhoanChi"),
+        tenKhoanChi: formData.get("tenKhoanChi"),
     };
-    addThuChi(data1);
+    addThuChi(data);
 });
 
 // Sự kiện xóa dữ liệu
@@ -133,61 +132,46 @@ document.getElementById("tableBody").addEventListener("click", (event) => {
         deleteThuChi(id);
     }
 });
-function showThuChiDetail(id) {
-    // Lấy thông tin khoản thu chi
-    const thuChi = await getThuChiById(id);
+document.getElementById("tableBody").addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-view")) {
+        const id = event.target.dataset.id;
+        // Hiển thị chi tiết khoản thu chi
+        // 1. Tạo phần tử HTML để hiển thị chi tiết
+        const modalElement = document.createElement("div");
+        modalElement.classList.add("modal");
+        modalElement.innerHTML = `
+    <div class="modal-content">
+      <h2>Khoản thu chi ID: ${id}</h2>
+      <p>Ngày: ${data.find(item => item.id === id).ngayChi}</p>
+      <p>Loại: ${data.find(item => item.id === id).loai}</p>
+      <p>Số tiền: ${data.find(item => item.id === id).soTien.toLocaleString("vi-VN")}</p>
+      <p>Nội dung: ${data.find(item => item.id === id).tenKhoanChi}</p>
+      <button class="modal-close">Đóng</button>
+    </div>
+  `;
+        document.body.appendChild(modalElement);
 
-    // Tạo modal
-    const modal = new bootstrap.Modal(document.getElementById("modal-thu-chi"));
+        // 2. Thêm sự kiện click cho nút đóng modal
+        modalElement.querySelector(".modal-close").addEventListener("click", () => {
+            document.body.removeChild(modalElement);
+        });
+    } else if (event.target.classList.contains("btn-edit")) {
+        const id = event.target.dataset.id;
+        // Mở form edit với dữ liệu hiện tại
+        const item = data.find(item => item.id === id);
 
-    // Thêm nội dung vào modal
-    modal.find(".modal-body").html(`
-    <h4>Thông tin khoản thu chi</h4>
-    <table>
-      <tr>
-        <td>ID</td>
-        <td>${thuChi.id}</td>
-      </tr>
-      <tr>
-        <td>Ngày chi</td>
-        <td>${thuChi.ngayChi}</td>
-      </tr>
-      <tr>
-        <td>Loại</td>
-        <td>${thuChi.Loai}</td>
-      </tr>
-      <tr>
-        <td>Số tiền</td>
-        <td>${thuChi.soTien.toLocaleString("vi-VN")}</td>
-      </tr>
-      <tr>
-        <td>Tên khoản chi</td>
-        <td>${thuChi.tenKhoanChi}</td>
-      </tr>
-    </table>
-  `);
-
-    // Hiển thị modal
-    modal.show();
-}
-async function editThuChi(id) {
-    // Lấy thông tin khoản thu chi
-    const thuChi = await getThuChiById(id);
-
-    // Tạo form sửa
-    const form = document.createElement("form");
-    form.action = "/api/thu-chi/edit";
-    form.method = "post";
-
-    // Điền thông tin khoản thu chi vào form
-    form.appendChild(document.createElement("input"));
-    form.appendChild(document.createElement("input"));
-    form.appendChild(document.createElement("input"));
-    form.appendChild(document.createElement("input"));
-    form.appendChild(document.createElement("input"));
-
-    // Hiển thị form
-    const modal = new bootstrap.Modal(document.getElementById("modal-thu-chi"));
-    modal.find(".modal-body").html(form);
-    modal.show();
-}
+        // 2. Mở form edit với dữ liệu hiện tại
+        document.getElementById("editForm").style.display = "block";
+        document.getElementById("editForm").elements["ngayChi"].value = item.ngayChi;
+        document.getElementById("editForm").elements["loai"].value = item.loai;
+        document.getElementById("editForm").elements["soTien"].value = item.soTien;
+        document.getElementById("editForm").elements["tenKhoanChi"].value = item.tenKhoanChi;
+        // 3. Xử lý logic submit form edit (cập nhật dữ liệu)
+        document.getElementById("editForm").addEventListener("submit", (event) => {
+            // ...
+        });
+    } else if (event.target.classList.contains("btn-delete")) {
+        const id = event.target.dataset.id;
+        deleteThuChi(id);
+    }
+});

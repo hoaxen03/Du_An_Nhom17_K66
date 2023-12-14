@@ -1,6 +1,7 @@
-﻿// const url = "http://localhost:5077/api/Student";
+﻿const url2 = "http://localhost:5077/api/Student";
 // let test;
 let data;
+
 // Khai báo biến options bên ngoài hàm getdata
 const options = {
     method: "GET",
@@ -12,9 +13,9 @@ const options = {
     }
 };
 
-async function getdata(url) {
+async function getdata(url2) {
     try {
-        const response = await fetch(url, options);
+        const response = await fetch(url2, options);
         data = await response.json();
         console.log(data);
 
@@ -39,5 +40,6 @@ async function getdata(url) {
         console.error(error);
     }
 }
-
-getdata(url);
+getdata(url2);
+let total;
+export { total };
