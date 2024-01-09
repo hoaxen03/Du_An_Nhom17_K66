@@ -12,7 +12,7 @@ const options = {
         "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Origin, X-Auth-Token"
     }
 };
-
+let total = 0;
 async function getdata(url2) {
     try {
         const response = await fetch(url2, options);
@@ -20,13 +20,11 @@ async function getdata(url2) {
         console.log(data);
 
         // Tính tổng số tiền của tất cả các sinh viên
-        let total = 0;
         for (const student of data) {
             if (student.tien) { // Kiểm tra thuộc tính tien
                 total += student.tien;
             }
         }
-
         // Hiển thị số dư quỹ
         document.getElementById("sodu").innerHTML = total;
 
@@ -41,5 +39,3 @@ async function getdata(url2) {
     }
 }
 getdata(url2);
-let total;
-export { total };

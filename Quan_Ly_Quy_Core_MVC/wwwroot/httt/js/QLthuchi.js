@@ -1,10 +1,6 @@
 ﻿const url = "http://localhost:5077/api/ThuChi"; // Thay đổi URL API phù hợp
-import { total } from "./QuanLyQuy";
-if (typeof total === "undefined") {
-    console.error("Không thể lấy được biến total từ QuanLyQuy.js");
-    return;
-}
 // Hàm lấy dữ liệu thu chi
+
 async function getThuChi(url)
 {
     const options = {
@@ -20,11 +16,9 @@ async function getThuChi(url)
     total = calculateTotal(data);
     return data;
 }
-getThuChi(url, total);
-
-// Hàm tính tổng số tiền quỹ
+getThuChi(url);
+let total = 1500000;// Hàm tính tổng số tiền quỹ
 function calculateTotal(data) {
-    total = 0;
     data.forEach((item) => {
         if (item.loai === "Thu") {
             total += item.soTien;

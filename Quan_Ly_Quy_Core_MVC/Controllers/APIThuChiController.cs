@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.Metrics;
 using System.Net;
 using System.Xml.Linq;
+using System.Globalization;
 
     namespace Quan_Ly_Quy_Core_API.Controllers
     {
@@ -11,10 +12,10 @@ using System.Xml.Linq;
         public class APIThuChiController : ControllerBase
         {
             private static List<ThuChi> ls_ThuChi = new List<ThuChi> {
-            new ThuChi { Id = 1 ,TenKhoanChi = "8/3", Loai ="Chi", SoTien = 330000,NgayChi=8/3/2023},
-            new ThuChi {Id = 3 ,TenKhoanChi ="Bán sắt vụn",Loai ="Thu",SoTien = 50000,NgayChi=7/10/2023},
-            new ThuChi { Id = 2 ,TenKhoanChi = "mua phấn",Loai="Chi", SoTien = 30000,NgayChi=14 / 5 / 2023},
-            new ThuChi{Id = 4 ,TenKhoanChi = "Thu tiền liên hoan",Loai ="Thu",SoTien= 500000 ,NgayChi= 18 / 7 /2023},
+            new ThuChi { Id = 1 ,TenKhoanChi = "8/3", Loai ="Chi", SoTien = 330000,NgayChi = DateTime.Parse("3/8/2023"),},
+            new ThuChi {Id = 3 ,TenKhoanChi ="Bán sắt vụn",Loai ="Thu",SoTien = 50000,NgayChi = DateTime.Parse("7/10/2023"),},
+            new ThuChi { Id = 2 ,TenKhoanChi = "mua phấn",Loai="Chi", SoTien = 30000,NgayChi = DateTime.Parse("14 / 5 / 2023"),},
+            new ThuChi{Id = 4 ,TenKhoanChi = "Thu tiền liên hoan",Loai ="Thu",SoTien= 500000 ,NgayChi = DateTime.Parse("18 / 7 /2023"),},
         };
             private int id;
             //public void AddProduct()

@@ -1,44 +1,38 @@
-﻿function getThuChi() {
-    // Gọi API lấy tất cả các khoản thu chi
-    $.ajax({
-        url: "/api/KhoanChi",
-        method: "get",
-        success: function (data) {
-            // Xóa dữ liệu trong bảng
-            $("#data").empty();
+﻿const url1 = "http://localhost:5077/api/Student";
+// let test;
+let data;
 
-            // Thêm dữ liệu vào bảng
-            for (var i = 0; i < data.length; i++) {
-                var thuChi = data[i];
-
-                var row = "<tr>";
-                row += "<td>" + thuChi.id + "</td>";
-                row += "<td>" + thuChi.tenKhoanChi + "</td>";
-                row += "<td>" + thuChi.soTienCanChi + "</td>";
-                row += "<td>" + thuChi.soLuongChi + "</td>";
-                row += "<td>" + thuChi.NgayChi + "</td>";
-                row += "<td>" + thuChi.NamChi + "</td>";
-                row += "<td><button type=\"button\" class=\"btn btn-primary\">Sửa</button> <button type=\"button\" class=\"btn btn-danger\">Xóa</button> <button type=\"button\" class=\"btn btn-info\">Xem chi tiết</button></td>";
-
-                $("#data").append(row);
+// Khai báo biến options bên ngoài hàm getdata
+const options = {
+    method: "GET",
+    headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "PUT,GET,POST,DELETE,OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Origin, X-Auth-Token"
+    }
+};
+let total = 0;
+async function getdata(url1) {
+    try {
+        const response = await fetch(url1, options);
+        data = await response.json();
+        console.log(data);
+        // Tính tổng số tiền của tất cả các sinh viên
+        for (const student of data) {
+            if (student.tien) { // Kiểm tra thuộc tính tien
+                total += student.tien;
             }
-
-            // Hiển thị số dư
-            var sodu = 0;
-            for (var i = 0; i < data.length; i++) {
-                var thuChi = data[i];
-
-                if (thuChi.loai == "thu") {
-                    sodu += thuChi.sotien;
-                } else {
-                    sodu -= thuChi.sotien;
-                }
-            }
-
-            $("#sodu").text(sodu);
-        },
-        error: function (error) {
-            alert(error.responseText);
         }
-    });
+        return total;
+        // Kiểm tra giá trị của biến total
+        if (total > 1000000) {
+            console.log("Số dư quỹ lớp học lớn hơn 1 triệu đồng");
+        } else {
+            console.log("Số dư quỹ lớp học nhỏ hơn hoặc bằng 1 triệu đồng");
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }
+getdata(url1);
