@@ -35,7 +35,7 @@ namespace Quan_Ly_Quy_Core_API.Controllers
                     Lop         = "66-HTTT"     ,
                     Khoavien    = "Khoa CĐCT"   ,
                     Cccd        = "0011234534"  ,
-                    Hodem       = "Phạm Thị"  ,
+                    Hodem       = "Nguyễn Thị"  ,
                     Ten         = "Lộc"      ,
                     Bietdanh    = "Phạm Lộc"      ,
                     Email       = "abcd@demo.com",
